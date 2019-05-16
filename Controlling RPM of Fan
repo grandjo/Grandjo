@@ -1,0 +1,12 @@
+// generate 31.37kHz PWM pulse rate on Pin 3 and/or Pin 11
+ pinMode(11, OUTPUT);  // OCR2A sets duty cycle
+ pinMode(3, OUTPUT);   // OCR2B sets duty cycle
+// Uncomment one of the three following lines to enable PWM on Pin 3 or Pin 11
+//  TCCR2A = 0x81;   // Pin 11
+//  TCCR2A = 0x21;   // Pin 3
+ TCCR2A = 0xA1;     // Pin 11 and Pin 3 (BOTH)
+// Set prescaler  
+ TCCR2B = 0x01;   // prescaler = 1
+// Initialize duty cycle(s) to zero(0)
+ OCR2A = 0;    // duty cycle for Pin 11
+ OCR2B = 0;    // duty cycle for Pin 3
